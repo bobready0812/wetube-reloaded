@@ -7,7 +7,7 @@
     "url": "git+https://github.com/bobready0812/wetube-reloaded.git"
   },
   "scripts": {
-    "win": "node index.js"
+    "dev": "nodemon --exec babel-node index.js"
   },
   "author": "bobready0812",
   "license": "MIT",
@@ -19,6 +19,9 @@
     "express": "^4.17.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.0"
+    "@babel/core": "^7.17.0",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.15"
   }
 }
