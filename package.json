@@ -17,5 +17,8 @@
   "homepage": "https://github.com/bobready0812/wetube-reloaded#readme",
   "dependencies": {
     "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.0"
   }
 }
