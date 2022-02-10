@@ -3,13 +3,15 @@ import express from "express";
  const PORT = 4000;
  const app = express();
 
- app.get("/", (req, res) => {
- return res.send("I still love you");
-}
- )
- app.get("/login", (req,res) => {
-     return res.send("<button>안녕</button>");
- })
+ const gossipMiddleware = (req, res, next) => {
+     console.log(`someone is going to: ${req.url}`);
+     next();
+ }
+
+ const handleHome = (req, res, next) => {
+     return res.send("good middleware");
+ }
+ app.get("/", gossipMiddleware, handleHome );
 
 
 const handleListening = () => console.log("Server");
