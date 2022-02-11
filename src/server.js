@@ -1,4 +1,5 @@
 import express from "express";
+import logger from "morgan";
 
  const PORT = 4000;
  const app = express();
@@ -15,8 +16,8 @@ import express from "express";
 
 
 
-
- app.get("/", logger, handleHome);
+ app.use(logger("dev"));
+ app.get("/", handleHome);
 
 
 
