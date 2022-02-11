@@ -4,10 +4,7 @@ import logger from "morgan";
  const PORT = 4000;
  const app = express();
 
- const logger = (req, res, next) => {
-     console.log(`${req.url} ${req.method}`);
-     next();
- }
+ 
 
  const handleHome = (req, res, next) => {
      return res.send("good middleware");
@@ -16,7 +13,7 @@ import logger from "morgan";
 
 
 
- app.use(logger("dev"));
+ app.use(logger("tiny"));
  app.get("/", handleHome);
 
 
