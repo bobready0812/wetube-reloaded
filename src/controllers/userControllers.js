@@ -1,3 +1,5 @@
-const trending = (req, res) => res.send("Home Page Vidoes"); 
+export const join = (req, res) => res.send("join");
 
-export default trending;
+export const edit = (req, res) => res.send("Edit user");
+export const remove = (req, res) => res.send ("delete user");
+
