@@ -1,4 +1,5 @@
 import express from "express";
+import morgan from "morgan";
 import logger from "morgan";
 
  const PORT = 4000;
@@ -6,15 +7,20 @@ import logger from "morgan";
 
  
 
- const handleHome = (req, res, next) => {
-     return res.send("good middleware");
- }
+const logger = morgan("dev")
 
 
 
+const home = (req, res) => {
+    return res.send("hello");
+}
 
- app.use(logger("tiny"));
- app.get("/", handleHome);
+const login = (req, res) => {
+    return res.send("login");
+}
+ app.use(logger);
+ app.get("/", home);
+ app.get("/login", login);
 
 
 
