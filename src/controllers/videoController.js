@@ -1,8 +1,7 @@
 export const trending = (req, res) => res.render("home"); 
 
 export const see = (req, res) => {
-    console.log(req.params);
-    return res.send("Watch");
+   res.render("watch");
 };
 export const edit = (req, res) => {
     console.log(req.params);
