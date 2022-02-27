@@ -26,7 +26,9 @@ export const getUpload = (req, res) => {
 }
 export const postUpload = async (req, res) => {
    const { title, description, hashtags } = req.body;
+   try{
    await Video.create({
+
       title,
       description,
       createdAt: Date.now(),
@@ -37,4 +39,8 @@ export const postUpload = async (req, res) => {
       },
    });
    return res.redirect("/");
+} catch(error) {
+   console.log(error);
+   return res.render("upload",{pageTitle: "Upload Video"});
+}
 }
