@@ -45,15 +45,14 @@ export const postUpload = async (req, res) => {
    const { title, description, hashtags } = req.body;
    try{
    await Video.create({
-
       title,
       description,
       hashtags:Video.formatHashtags(hashtags),
    });
    return res.redirect("/");
 } catch(error) {
-   console.log(error);
-   return res.render("upload",
+
+   return res.status(400).render("upload",
    {pageTitle: "Upload Video", 
     errorMsg: error._message,
    });
