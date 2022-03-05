@@ -16,7 +16,7 @@ export const postJoin = async(req,res) => {
     if(exists) {
         return res.status(400).render("join", {pageTitle, errorMessage:"This username/email is already taken"})
     }
-   
+    try{
     await User.create({
         name,
         username,
@@ -25,9 +25,15 @@ export const postJoin = async(req,res) => {
         location,
     });
     return res.redirect("/login");
+    } catch(error) {
+    return res.status(400).render("join",{
+     pageTitle: "Upload Video", 
+     errorMsg: error._message,
+    });
+}
 }
 export const edit = (req, res) => res.send("Edit user");
 export const remove = (req, res) => res.send ("delete user");
-export const login = (req,res) => res.send("Login");
+export const getLogin = (req,res) => res.send("Login");
 export const see = (req, res) => res.send("Log out");
 export const logout = (req, res) => res.send("See User");
