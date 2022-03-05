@@ -32,8 +32,22 @@ export const postJoin = async(req,res) => {
     });
 }
 }
+
+
 export const edit = (req, res) => res.send("Edit user");
 export const remove = (req, res) => res.send ("delete user");
-export const getLogin = (req,res) => res.send("Login");
+export const getLogin = (req,res) => res.render("login", {pageTitle:"Login"});
+export const postLogin = async(req,res) => {
+    const {username, password} = req.body;
+    const exists = await User.exists({ username });
+    if(!exists) {
+        return res.status(400).render("login", {
+            pageTitle:"Login",
+            errorMessage: "An account with this username does not exists."
+         })
+    }
+    res.end();
+}
+
 export const see = (req, res) => res.send("Log out");
 export const logout = (req, res) => res.send("See User");
