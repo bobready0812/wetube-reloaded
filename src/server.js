@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended:true }));
 app.use(session({
     secret:"Hello!",
     resave: true,
+    saveUninitialized: true,
 }))
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
