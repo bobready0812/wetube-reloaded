@@ -81,4 +81,3 @@ export const search = async(req, res) => {
    return res.render("search", {pageTitle: "Search", videos});
 } 
 
-wowowowowow 성공했어!!!
